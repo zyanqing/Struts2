@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <!-- 开启动态方法访问 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+    <package name="demo3" namespace="/" extends="struts-default" >
+
+        <action name="userFind" class="demo3.UserAction" method="find"></action>
+        <action name="userUpdate" class="demo3.UserAction" method="update"></action>
+        <action name="userDelete" class="demo3.UserAction" method="delete"></action>
+        <action name="userSave" class="demo3.UserAction" method="save"></action>
+
+        <!-- 通配符的方式 -->
+        <action name="product_*" class="demo3.ProductAction" method="{1}"></action>
+
+        <!-- 动态方法访问的方式，需要先开启动态访问(关键配置是在访问的路径：name！fuc) -->
+        <action name="customer" class="demo3.CustomerAction"></action>
+    </package>
+    
+    
+    
+</struts>

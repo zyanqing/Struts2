@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <!--
+     name       :包的名称，只有在一个项目中不重名即可
+     extends    :继承哪个包，通常值为struts-default
+     namespace  :名称空间，与<action>标签中的name属性共同决定访问路径
+     abstract   :抽象的，用于其他包的继承
+     -->
+    <package name="demo1" extends="struts-default" namespace="" abstract="false">
+
+        <!--
+         name   :与namespace共同决定访问路径
+         class  :Action类的全路径
+         method :执行Action中的那个方法的方法名，默认值execute
+         converter  :用于设置类型转换器
+        -->
+        <action name="hello" class="demo1.HelloAction">
+
+            <!--配置页面的跳转 -->
+            <result name="success">/sussess.jsp</result>
+        </action>
+
+
+    </package>
+
+</struts>
