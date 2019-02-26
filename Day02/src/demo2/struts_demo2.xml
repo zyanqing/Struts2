@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="struts_demo2" extends="struts-default" namespace="/">
+        <global-results>
+            <!-- 如果提供了input逻辑视图，在数据封装出错的时候将会走逻辑视图，错误的输出会以日志的形式 -->
+            <result name="input">/demo2/demo1.jsp</result>
+        </global-results>
+        <action name="userAction1" class="demo2.UserAction1"/>
+        <action name="userAction2" class="demo2.UserAction2"/>
+        <action name="userAction3" class="demo2.UserAction3"/>
+    </package>
+
+</struts>

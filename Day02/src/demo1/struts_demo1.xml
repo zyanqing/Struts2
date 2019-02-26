@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <!-- servlet是单例的，多个程序访问同一个servlet只会创建一个servlet的实例。action是多例的，一次请求，创建一个action的实例（不会出现线程安全问题） -->
+
+
+    <package name="struts_demo1" namespace="/" extends="struts-default">
+
+
+        <!-- 全局结果页面：全局结果页面指的是，在包中配置一次，其它的在这个包中的所有action只要返回了这个值，都可以跳转到这个界面（针对这个包下的所有action） -->
+        <!--<global-results>-->
+            <!--<result name="success">/demo1/demo2.jsp</result>-->
+        <!--</global-results>-->
+
+
+        <!-- 局部结果页面：局部结果页面指的是，只能在当前的action中的配置有效（针对当前的action有效） -->
+        <action name="requestDemo1" class="demo1.RequestDemo1">
+            <!--
+                type属性：
+                        dispatch    ：默认值，请求转发。（Action转发jsp）
+                        redirect    ：重定向。（Action重定向jsp）
+                        chain       ：转发。（Action转发Action）
+                        redirectAction  ：重定向。（Action重定向Action）
+                        stream      ：Struts2中提供文件下载的功能
+
+            -->
+            <result name="success" type="dispatcher">/demo1/demo2.jsp</result>
+        </action>
+
+        <action name="requestDemo2" class="demo1.RequestDemo2">
+            <result name="success">/demo1/demo2.jsp</result>
+        </action>
+
+        <action name="requestDemo3" class="demo1.RequestDemo2">
+            <result name="success">/demo1/demo2.jsp</result>
+        </action>
+
+    </package>
+
+</struts>
